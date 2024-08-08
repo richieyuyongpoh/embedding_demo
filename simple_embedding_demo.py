@@ -3,7 +3,7 @@ import openai
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-openai_api_key =  st.secrets["api_secret"]
+openai.api_key =  st.secrets["api_secret"]
 
 
 
