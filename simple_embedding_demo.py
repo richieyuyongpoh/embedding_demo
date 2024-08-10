@@ -8,8 +8,8 @@ openai.api_key =  st.secrets["api_secret"]
 
 
 # Function to generate embeddings using OpenAI
-def get_embedding(question, openai_api_key):
-    openai.api_key = openai_api_key
+def get_embedding(question):
+
     response = openai.Embedding.create(
         input=question,
         engine="text-embedding-ada-002"
@@ -36,8 +36,8 @@ if st.button("Submit"):
     if faq_question and user_question:
         try:
             # Get embeddings
-            faq_embedding = get_embedding(faq_question, openai_api_key)
-            user_embedding = get_embedding(user_question, openai_api_key)
+            faq_embedding = get_embedding(faq_question)
+            user_embedding = get_embedding(user_question)
 
             # Calculate similarity
             similarity = calculate_similarity(faq_embedding, user_embedding)
